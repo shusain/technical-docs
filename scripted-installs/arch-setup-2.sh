@@ -7,7 +7,8 @@ pacman --noconfirm -S plasma-meta sddm konsole
 # Create configuration folder for the display manager
 mkdir /etc/sddm.conf.d
 
-read -p "Enter your \"regular\" username, once more: " USER_TO_ADD
+read -p "Enter your \"regular\" username, once more (adding autologin config for that user): " USER_TO_ADD
+
 # Write out a config file for autologin and setting plasma as the default DE
 echo "[Autologin]
 User=$USER_TO_ADD
@@ -19,5 +20,5 @@ systemctl set-default graphical.target
 # Enable the sddm service so it will run on next boot to handle graphical login
 systemctl enable sddm.service
 
-# Rebootsky! and should be ready to use the DE
+# Rebootsky! and should be ready to use the DE after this reboot
 reboot

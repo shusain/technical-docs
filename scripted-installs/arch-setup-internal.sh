@@ -1,6 +1,10 @@
 #!/bin/bash
+
 # This script will be run automatically by arch-setup-1.sh from within the
-# arch-chroot for the new installation
+# arch-chroot for the new installation the script handles setting up
+# default config for network manager, as well as creating a non-root user
+# account and configuring a sudo group for that user so they can escalate
+# privileges when need be.
 
 # Link the timezone to the system localtime
 ln -sf /usr/share/zoneinfo/US/Central /etc/localtime
