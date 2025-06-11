@@ -13,10 +13,12 @@ Get the machine IP and use for the next two commands.
 | `ssh root@$TARGET_MACHINE_IP`             | SSH to the new machine             |
 | `/arch-setup-1.sh`                        | Run script on remote machine       |
 
+```
 TARGET_MACHINE_IP=192.168.0.109
 scp arch*.sh root@$TARGET_MACHINE_IP:/
 ssh root@$TARGET_MACHINE_IP
 /arch-setup-1.sh
+```
 
 As the system installs you'll be prompted to enter a password for the "regular user" that will be setup.
 After the system reboots run: `sudo /arch-setup-2.sh` to setup KDE Plasma desktop.
