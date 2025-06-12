@@ -23,15 +23,16 @@ useradd -m $USER_TO_ADD
 echo "Prompting for user password"
 passwd $USER_TO_ADD
 
-# Creating sudo group and setting up user in group
-groupadd sudo
-gpasswd -a $USER_TO_ADD sudo
+# Adding user to wheel group
+gpasswd -a $USER_TO_ADD wheel
 
 echo "
 # Add by arch-setup-internal.sh script
-%sudo ALL=(ALL:ALL) ALL
+%wheel ALL=(ALL) ALL
+
+# Setting timeout for sudo password prompt to 30m
 Defaults timestamp_timeout=30
-" >> /etc/sudoers
+" >> /etc/sudoers.d/wheel
 
 # EDITOR=nano visudo
 

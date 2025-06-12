@@ -1,5 +1,26 @@
 #!/bin/bash
 
+## !!!! WARNING !!!! this script will wipe out whatever partitions are setup on
+## the primary disk when run.  Use at your own risk!
+
+## This setup script meant to be run on a target virtual machine with one 32GB
+## drive configured and ready to be setup.
+
+# Define the countdown duration in seconds
+countdown_seconds=10
+
+echo "Press Ctrl+c now to cancel install, installation will wipe the primary drive."
+
+# Loop while the countdown is greater than 0
+while [ $countdown_seconds -gt 0 ]; do
+  # Print the remaining time on the same line, overwriting previous output
+  printf "Press Ctrl+c now to cancel or starting installation in... %2d\r" "$countdown_seconds"
+  # Pause for 1 second
+  sleep 1
+  # Decrement the countdown
+  ((countdown_seconds--))
+done
+
 # Writes out a file to use as scripted input to paritition the disk
 # First 4GB is used for SWAP next 28GB is used for OS install
 echo "label: dos
